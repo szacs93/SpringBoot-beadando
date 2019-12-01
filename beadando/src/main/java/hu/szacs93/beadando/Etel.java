@@ -5,10 +5,28 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ETEL")
 public class Etel {
-	
-	//CREATE TABLE ETEL (ID INT PRIMARY KEY, NEV VARCHAR(25), KALORIA INT, GLUTEN BOOLEAN, TEJ BOOLEAN);
   
-    @Id
+    public String getName() {
+		return name;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public int getKaloria() {
+		return kaloria;
+	}
+
+	public boolean isGluten() {
+		return gluten;
+	}
+
+	public boolean isTej() {
+		return tej;
+	}
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, unique = true)
     private int id;
@@ -40,12 +58,12 @@ public class Etel {
         this.tej = tej;
     }
     
-    public String toString() {
+    public String ToString() {
     	return id + ": " + name + " " + price + "Ft " + kaloria + "kcal " + ((gluten == true) ? "(glutént tartalmaz)" : "") + " " + ((tej == true) ? "(tejet tartalmaz)" : "");
     }
     
     public String getDetails()
     {
-    	return id + ";" + name + ";" + price + "Ft;" + kaloria + "kcal;" + gluten + ";" + tej;
+    	return id + ".;" + name + ";" + price + "Ft;" + kaloria + "kcal;" + gluten + ";" + tej;
     }
 }
