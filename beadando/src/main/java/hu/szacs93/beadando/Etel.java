@@ -64,6 +64,6 @@ public class Etel {
     
     public String getDetails()
     {
-    	return id + ".;" + name + ";" + price + "Ft;" + kaloria + "kcal;" + gluten + ";" + tej;
+    	return id + ";" + name + ";" + price + "Ft;" + kaloria + "kcal;" + gluten + ";" + tej;
     }
 }

@@ -29,7 +29,7 @@ public class EtelController {
 	  }
 	
 	@RequestMapping("/adatok")
-	  public String etelAdatok(@RequestParam(value="id", defaultValue="1") int id) {
+	  public String etelAdatok(@RequestParam(value="id", defaultValue="0") int id) {
 	    Etel akt = repository.findById(id);
 	    String tmp = "<p>Név: " + akt.getName() + "</p>" +
 	    		"<p>Ár: " + akt.getPrice() + "Ft</p>" +
@@ -38,6 +38,14 @@ public class EtelController {
 	    		((akt.isTej()) ? "<p><b>Tejet tartalmaz</b></p>" : "");
 	    return tmp;
 	  }
+	
+	@RequestMapping("/torles")
+	  public String etelTorles(@RequestParam(value="id", defaultValue="0") int id) {
+		Etel torlendo = repository.findById(id);
+		String tmp = "Törölve: " + torlendo.getDetails();
+		repository.delete(torlendo);
+		return tmp;
+	}
 	
 	@RequestMapping("/etlap")
 	  public String etlap() {
